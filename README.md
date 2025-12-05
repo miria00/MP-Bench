@@ -110,6 +110,7 @@ Edge cases (unbounded/infeasible) and procedural scaling tests.
 
 After running the aggregator, the data is organized by Collection and Scale:
 
+```
 lp_benchmark_data/
 ├── raw/                  # Original .mps.gz downloads
 └── processed/            # Standardized .npz files
@@ -119,8 +120,7 @@ lp_benchmark_data/
     │   └── medium/       # e.g., rail507.npz
     └── MIPLIB2017_Relaxations/
         └── medium/       # e.g., air03.npz
-
-
+```
 
 ## References & Sources
 
