@@ -1,16 +1,16 @@
-# MP-Bench: Mathematical Programming Benchmark Suite
+# MP-Bench
 
-This repo is designed to fetch, standardize, and evaluate Linear Programming (LP) solvers. Expansion will include further curated optimization resources & general instances. 
+Mathematical Programming Benchmark Suite. This repo is designed to fetch, standardize, and evaluate Linear Programming (LP) solvers. Expansion will include further curated optimization resources & general instances. 
 
 It aggregates historically significant datasets—including Netlib, Mittelmann, and MIPLIB 2017—into a standard NumPy (.npz) format, specifically tailored for testing both GPU-accelerated solvers and established CPU baselines.
 
-## Features
+**Functionality**
 
 Automated Fetching: Downloads raw MPS files from reliable mirrors (ZIB, COIN-OR).
 
 Standardization: Parses .mps files using highspy and converts them to a consistent Standard Form LP ($min \ c^T x$ s.t. $l \le Ax \le u$).
 
-## Comprehensive Suites:
+**Comprehensive Suites**
 
 Netlib LP: The classic 1980s standard for correctness.
 
@@ -20,21 +20,7 @@ MIPLIB 2017: Real-world LP relaxations of mixed-integer problems.
 
 CVXPY Unit Tests: Ported edge cases (unbounded, infeasible, redundant) for API verification.
 
-Comparison Harness: Built-in main.py to run your solver against SciPy (HiGHS) and calculate relative error.
-
-## Directory Structure
-
-After running the aggregator, the data is organized by Collection and Scale:
-
-lp_benchmark_data/
-├── raw/                  # Original .mps.gz downloads
-└── processed/            # Standardized .npz files
-    ├── Netlib_LP/
-    │   └── small/        # e.g., afiro.npz, pilot87.npz
-    ├── Mittelmann_Benchmark/
-    │   └── medium/       # e.g., rail507.npz
-    └── MIPLIB2017_Relaxations/
-        └── medium/       # e.g., air03.npz
+Comparison Harness currently built-in main.py to run CORGIsolver against SciPy (HiGHS) and calculate relative error.
 
 
 ## Installation and Usage
@@ -120,34 +106,42 @@ Edge cases (unbounded/infeasible) and procedural scaling tests.
 
 ~6
 
+## Directory Structure
+
+After running the aggregator, the data is organized by Collection and Scale:
+
+lp_benchmark_data/
+├── raw/                  # Original .mps.gz downloads
+└── processed/            # Standardized .npz files
+    ├── Netlib_LP/
+    │   └── small/        # e.g., afiro.npz, pilot87.npz
+    ├── Mittelmann_Benchmark/
+    │   └── medium/       # e.g., rail507.npz
+    └── MIPLIB2017_Relaxations/
+        └── medium/       # e.g., air03.npz
+
+
+
 ## References & Sources
 
-This suite scrapes and aggregates data from the following open-source repositories and archives:
+This suite aggregates data from the following open-source repositories and archives:
 
-Netlib LP Benchmark
-
-Original Archive: https://www.netlib.org/lp/
+Netlib LP Benchmark: https://www.netlib.org/lp/
 
 GitHub Mirror (COIN-OR): https://github.com/coin-or-tools/Data-Netlib
 
 Description: Gay, D. M. (1985). Electronic mail distribution of linear programming test problems.
 
-Hans Mittelmann's Benchmarks
-
-Official Site: http://plato.asu.edu/bench.html
+Hans Mittelmann's Benchmarks: http://plato.asu.edu/bench.html
 
 Mirrors: Hosted via ZIB (Zuse Institute Berlin)
 
 Description: Benchmark of Simplex LP solvers & Large Network-LP Benchmark.
 
-MIPLIB 2017
-
-Official Site: https://miplib.zib.de/
+MIPLIB 2017: https://miplib.zib.de/
 
 Paper: Gleixner, A., et al. (2021). MIPLIB 2017: Data-Driven Compilation of the 6th Mixed-Integer Programming Library.
 
-CVXPY
-
-Repository: https://github.com/cvxpy/cvxpy
+CVXPY: https://github.com/cvxpy/cvxpy
 
 Description: Diamond, S., & Boyd, S. (2016). CVXPY: A Python-embedded modeling language for convex optimization.
