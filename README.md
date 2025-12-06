@@ -6,7 +6,8 @@ Mathematical Programming Benchmark Suite. This repo is designed to fetch, standa
 
 Automated Fetching: Downloads raw MPS files from reliable mirrors (ZIB, COIN-OR).
 
-Standardization: Parses .mps files using highspy and converts them to a consistent Standard Form LP ($min \ c^T x$ s.t. $l \le Ax \le u$).
+Standardization: Parses .mps files using highspy and converts them to a consistent Standard Form. 
+Such as LP form: ($min \ c^T x$ s.t. $l \le Ax \le u$).
 
 Suggested setup: Requires Python 3.8+. Recommended to use a virtual environment (conda or venv). 
 
