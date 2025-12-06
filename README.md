@@ -75,7 +75,6 @@ The columns correspond to:
    - large:  n >= 100,000
 3. Non-Zeros (e.g., '83 nnz'): 
    The total count of non-zero entries in the constraint matrix A. 
-   Note: Pure bound-constrained problems (like some CVXPY tests) may have 0 nnz 
 
 Output Directory: ```./lp_benchmark_data/processed/{Category}/{Scale}/{InstanceName}.npz```
 
@@ -94,17 +93,21 @@ lp_benchmark_data/
 ```
 
 
-The output is a collection of `.npz` files. Each file contains the LP in Standard Form:
-    minimize c^T x
-    subject to l_c <= A x <= u_c
-               l_v <= x <= u_v
+The output is a collection of `.npz` files. For LPs, each file contains the LP in Standard Form:
+$$
+\begin{aligned}
+\text{minimize} \quad & c^T x \\
+\text{subject to} \quad & l_c \leq Ax \leq u_c \\
+& l_v \leq x \leq u_v
+\end{aligned}
+$$
 
 NPZ Keys:
-    - 'c': Linear objective coefficients (1D array)
-    - 'A_data', 'A_indices': Sparse matrix data (coordinate format)
-    - 'A_shape': Shape of A (m, n)
-    - 'l_c', 'u_c': Lower and upper bounds on constraints (rows)
-    - 'l_v', 'u_v': Lower and upper bounds on variables (columns)
+- 'c': Linear objective coefficients (1D array)
+- 'A_data', 'A_indices': Sparse matrix data (coordinate format)
+- 'A_shape': Shape of A (m, n)
+- 'l_c', 'u_c': Lower and upper bounds on constraints (rows)
+- 'l_v', 'u_v': Lower and upper bounds on variables (columns)
 
 
 ## How to Use for Solver Testing
