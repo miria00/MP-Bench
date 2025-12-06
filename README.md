@@ -1,16 +1,20 @@
 # MP-Bench
 
-Mathematical Programming Benchmark Suite. This repo is designed to fetch, standardize, and evaluate Linear Programming (LP) solvers. Expansion will include further curated optimization resources & general instances. 
+Mathematical Programming Benchmark Suite. This repo is designed to fetch, standardize, and download problems. It aggregates historically significant and modern datasets into a standard form (.npz), specifically tailored for testing both GPU-accelerated solvers and established CPU baselines.
 
-It aggregates historically significant datasets—including Netlib, Mittelmann, and MIPLIB 2017—into a standard NumPy (.npz) format, specifically tailored for testing both GPU-accelerated solvers and established CPU baselines.
-
-**Functionality**
+**Functionality:**
 
 Automated Fetching: Downloads raw MPS files from reliable mirrors (ZIB, COIN-OR).
 
 Standardization: Parses .mps files using highspy and converts them to a consistent Standard Form LP ($min \ c^T x$ s.t. $l \le Ax \le u$).
 
-**Data Sources & Characteristics**
+Suggested setup: Requires Python 3.8+. Recommended to use a virtual environment (conda or venv). 
+
+```pip install -r requirements.txt```
+
+Note: highspy is the Python binding for the HiGHS solver, used here for robust MPS parsing.
+
+## Data Sources & Characteristics
 
 Netlib LP: The classic 1980s standard for correctness.
 
@@ -19,9 +23,6 @@ Mittelmann: Hard, large-scale stress tests for numerical stability.
 MIPLIB 2017: Real-world LP relaxations of mixed-integer problems.
 
 CVXPY Unit Tests: Ported edge cases (unbounded, infeasible, redundant) for API verification.
-
-Comparison Harness currently built-in main.py to run CORGIsolver against SciPy (HiGHS) and calculate relative error.
-
 
 1. Netlib LP Benchmark (Classic)
    - Count: ~98 instances
@@ -56,7 +57,7 @@ Comparison Harness currently built-in main.py to run CORGIsolver against SciPy (
    - Large Scale: Procedurally generated sparse matrices (Hinder-style) for memory scaling tests.
 
 
---- OUTPUT FORMAT & USAGE ---
+## Output Format
 
 When running this script, you will see output rows like:
   afiro           | small  | 83       nnz
@@ -74,7 +75,7 @@ The columns correspond to:
    The total count of non-zero entries in the constraint matrix A. 
    Note: Pure bound-constrained problems (like some CVXPY tests) may have 0 nnz 
 
-Output Directory: ./lp_benchmark_data/processed/{Category}/{Scale}/{InstanceName}.npz
+Output Directory: ```./lp_benchmark_data/processed/{Category}/{Scale}/{InstanceName}.npz```
 
 The output directory is organized by Collection and Scale:
 
@@ -105,15 +106,6 @@ NPZ Keys:
 
 
 ## How to Use for Solver Testing
-
-Requires Python 3.8+. Recommended to use a virtual environment (e.g., conda or venv).
-
-pip install numpy scipy requests highspy jax jaxlib
-
-
-(Note: highspy is the Python binding for the HiGHS solver, used here for robust MPS parsing).
-
-Usage
 
 1. Fetch and Process Data
 
