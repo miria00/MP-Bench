@@ -9,7 +9,7 @@ Automated Fetching: Downloads raw MPS files from reliable mirrors (ZIB, COIN-OR)
 Standardization: Parses .mps files using highspy and converts them to a consistent Standard Form. 
 Such as LP form: ($min \ c^T x$ s.t. $l \le Ax \le u$).
 
-Suggested setup: Requires Python 3.8+. Recommended to use a virtual environment (conda or venv). 
+Suggested setup: Requires Python 3.8+ in a virtual environment (conda or venv). 
 
 ```pip install -r requirements.txt```
 
@@ -32,7 +32,7 @@ CVXPY Unit Tests: Ported edge cases (unbounded, infeasible, redundant) for API v
    - Characteristics: 
      - Varied density (some dense, some sparse).
      - Historic standard for simplex/interior-point correctness.
-     - Includes "pathological" cases (cycling, degeneracy) like `cycle`, `greenbea`, `pilot`.
+     - Includes pathological cases (cycling, degeneracy) like `cycle`, `greenbea`, `pilot`.
 
 2. Hans Mittelmann's Benchmark (Stress Tests)
    - Count: ~14 selected instances
@@ -55,13 +55,14 @@ CVXPY Unit Tests: Ported edge cases (unbounded, infeasible, redundant) for API v
 4. CVXPY Synthetic Generators & Unit Tests
    - CVXPY Test Suite: Ported directly from CVXPY's standard LP test cases. Covers edge cases 
      (unbounded, infeasible, redundant constraints) and basic correctness.
-   - Large Scale: Procedurally generated sparse matrices (Hinder-style) for memory scaling tests.
-
+     
+5. Large Scale: Procedurally generated sparse matrices (Hinder-style) for memory scaling tests.
+   - TODO: Documentation.
 
 ## Output Format
 
 When running this script, you will see output rows like:
-  afiro           | small  | 83       nnz
+```  afiro           | small  | 83       nnz```
 
 
 The columns correspond to:
