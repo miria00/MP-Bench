@@ -93,14 +93,18 @@ lp_benchmark_data/
 ```
 
 
-The output is a collection of `.npz` files. For LPs, each file contains the LP in Standard Form:
-$$
-\begin{aligned}
-\text{minimize} \quad & c^T x \\
-\text{subject to} \quad & l_c \leq Ax \leq u_c \\
-& l_v \leq x \leq u_v
-\end{aligned}
-$$
+The output is a collection of `.npz` files. For LPs, each file contains the LP in Standard Form: 
+$$\begin{aligned}
+    \text{minimize} \quad & c^T x \\
+    \text{subject to} \quad & l_c \leq Ax \leq u_c \\
+    & l_v \leq x \leq u_v
+    \end{aligned}$$
+
+$$\begin{aligned}
+\min_x \quad & c^\top x \\
+\text{s.t.} \quad & \ell_c \le Ax \le u_c \\
+                  & \ell_v \le x \le u_v
+\end{aligned}$$
 
 NPZ Keys:
 - 'c': Linear objective coefficients (1D array)
