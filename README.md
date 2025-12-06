@@ -109,7 +109,7 @@ NPZ Keys:
 - 'l_v', 'u_v': Lower and upper bounds on variables (columns)
 
 
-## How to Use for Solver Testing
+## Usage
 
 1. Fetch and Process Data
 
