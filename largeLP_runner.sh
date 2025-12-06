@@ -1,4 +1,6 @@
 #!/bin/bash
+# This is an example script of how to generate large problem instances.
+
 mkdir -p large-problem-instances
 
 python generate_multicommodity_flow.py \
@@ -17,4 +19,3 @@ python generate_heat_source_location.py \
     --num_measurement_locations 700 \
     --seed 1
 
-# Add other calls similarly...
