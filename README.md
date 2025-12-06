@@ -55,7 +55,7 @@ CVXPY Unit Tests: Ported edge cases (unbounded, infeasible, redundant) for API v
    - CVXPY Test Suite: Ported directly from CVXPY's standard LP test cases. Covers edge cases 
      (unbounded, infeasible, redundant constraints) and basic correctness.
      
-5. Large Scale: Procedurally generated sparse matrices (Hinder-style) for memory scaling tests.
+5. Large Scale: Procedurally generated sparse matrices (proposed by Oliver Hinder) for memory scaling tests.
    - TODO: Documentation.
 
 ## Output Format
