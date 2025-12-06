@@ -7,7 +7,6 @@ Mathematical Programming Benchmark Suite. This repo is designed to fetch, standa
 Automated Fetching: Downloads raw MPS files from reliable mirrors (ZIB, COIN-OR).
 
 Standardization: Parses .mps files using highspy and converts them to a consistent Standard Form. 
-Such as LP form: ($min \ c^T x$ s.t. $l \le Ax \le u$).
 
 Suggested setup: Requires Python 3.8+ in a virtual environment (conda or venv). 
 
@@ -157,5 +156,3 @@ Description: Diamond, S., & Boyd, S. (2016). CVXPY: A Python-embedded modeling l
 Large Scale LP Test Problems: https://github.com/ohinder/large-scale-LP-test-problems
 
 Description: PDLP: A Practical First-Order Method for Large-Scale Linear Programming test cases hosted by Oliver Hinder
-
-https://github.com/ohinder/large-scale-LP-test-problems
