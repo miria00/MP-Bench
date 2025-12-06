@@ -93,12 +93,7 @@ lp_benchmark_data/
 ```
 
 
-The output is a collection of `.npz` files. For LPs, each file contains the LP in Standard Form: 
-$$\begin{aligned}
-    \text{minimize} \quad & c^T x \\
-    \text{subject to} \quad & l_c \leq Ax \leq u_c \\
-    & l_v \leq x \leq u_v
-    \end{aligned}$$
+The output is a collection of `.npz` files. For LPs, each file contains the form: 
 
 $$\begin{aligned}
 \min_x \quad & c^\top x \\
@@ -118,44 +113,22 @@ NPZ Keys:
 
 1. Fetch and Process Data
 
-Run the aggregator to download benchmarks and convert them to .npz:
+Run the aggregator to download benchmarks and saves them to .npz:
 
-python aggregate_test_suite.py
+```python aggregate_test_suite.py```
 
 
 This will create the lp_benchmark_data directory structure.
 
-2. Run the Test Harness
+2. Runner
 
-The main.py script runs your JAX solver against the downloaded benchmarks.
-
-To run a specific benchmark directory:
-Edit main.py configuration:
+The main.py script runs the JAX solver against the downloaded benchmarks.
 
 TEST_TYPE = "./lp_benchmark_data/processed/Netlib_LP/small"
 
-
-Then run:
-
-python main.py
-
-
-To run a procedural random test:
-Edit main.py configuration:
+Note: The random test type just generates a random matrix and tests it once. 
 
 TEST_TYPE = "random"
-
-
-
-
-1. Iterate through the `processed` directory.
-2. Load an instance: `data = np.load("path/to/instance.npz")`
-3. Reconstruct the sparse matrix:
-   `A = scipy.sparse.coo_matrix((data['A_data'], data['A_indices'].T), shape=data['A_shape'])`
-4. Pass (c, A, bounds) to your custom solver.
-5. Compare your result against Highs or SciPy (using `scipy.optimize.linprog`).
-
-
 
 ## References & Sources
 
