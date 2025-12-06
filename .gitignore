@@ -1,5 +1,4 @@
 *.pt
-*.txt
 *.pyc
 *.tar.gz
 *.npz
